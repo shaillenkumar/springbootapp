@@ -18,6 +18,8 @@ import com.helix.rest.webservice.restfulwebservicedemo.bean.User;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/home")
 public class UserResource {
@@ -39,9 +41,9 @@ public class UserResource {
 		return usr ;
 	}
 	
-	// Post Mapping to 
+	// Post Mapping for createUser. Add annotation @Valid for validation.
 	@PostMapping("/users")
-	public ResponseEntity<Object> createUser(@RequestBody User user) {
+	public ResponseEntity<Object> createUser(@Valid @RequestBody User user) {
 		User savedUser = userDao.save(user);
 		// to respond back with the Created Request URL 
 		// to indicate successful creation.
