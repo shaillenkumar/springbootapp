@@ -1,5 +1,7 @@
 package com.helix.rest.webservice.restfulwebservicedemo.controller;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -37,7 +39,11 @@ public class UserResource {
 	@GetMapping("/users/{id}")
 	public User retrieveUser(@PathVariable int id){
 		User usr = userDao.findOne(id);
+		/* Let us use the Hateoas here to get details of all users in addition to
+		the usr we are querying */
 		if(usr==null) throw new UserNotFoundException("id ->"+id);
+		
+		
 		return usr ;
 	}
 	
