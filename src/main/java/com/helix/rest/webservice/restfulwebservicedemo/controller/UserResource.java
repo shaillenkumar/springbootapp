@@ -41,9 +41,7 @@ public class UserResource {
 		User usr = userDao.findOne(id);
 		/* Let us use the Hateoas here to get details of all users in addition to
 		the usr we are querying */
-		if(usr==null) throw new UserNotFoundException("id ->"+id);
-		
-		
+		if(usr==null) throw new UserNotFoundException("id ->"+id);				
 		return usr ;
 	}
 	
