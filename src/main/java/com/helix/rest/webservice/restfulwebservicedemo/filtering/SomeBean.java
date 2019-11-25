@@ -1,19 +1,16 @@
 package com.helix.rest.webservice.restfulwebservicedemo.filtering;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties(value= {"field1", "field2"})
+@JsonFilter("SomeBeanFilter")
 public class SomeBean {
 	private String field1;
 	private String field2;
-		
-	// Say I want to filter the Field3 from the response
-	// @JsonIgnore
 	private String field3;
 	
-	
-	
+		
 	public SomeBean(String field1, String field2, String field3) {
 		super();
 		this.field1 = field1;
